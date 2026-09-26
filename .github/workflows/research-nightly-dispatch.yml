@@ -31,7 +31,7 @@ jobs:
             --jq '.[].name | select(startswith("research/candidate/") or startswith("research/nightly/"))' \
             > candidate-branches.txt
           gh api --paginate "repos/$GH_REPO/actions/workflows/research-candidate.yml/runs?event=workflow_dispatch&per_page=100" \
-            --jq '.workflow_runs[].display_title' > dispatched-titles.txt
+            --jq '.workflow_runs[].display_title' > dispatched-titles.txt 2>/dev/null || touch dispatched-titles.txt
           while IFS= read -r candidate_ref; do
             [[ "$candidate_ref" =~ ^research/(candidate|nightly)/[A-Za-z0-9._/-]+$ ]]
             candidate_sha="$(

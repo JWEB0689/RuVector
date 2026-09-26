@@ -16,7 +16,7 @@ env:
 jobs:
   create-release:
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
       version: ${{ steps.get_version.outputs.version }}
@@ -73,12 +73,12 @@ jobs:
       matrix:
         include:
           - target: x86_64-unknown-linux-gnu
-            os: ubuntu-latest
+            os: ubuntu-26.04
             artifact_name: libruvector_scipix.so
             asset_name: libruvector_scipix-linux-x86_64.so
 
           - target: aarch64-unknown-linux-gnu
-            os: ubuntu-latest
+            os: ubuntu-26.04
             artifact_name: libruvector_scipix.so
             asset_name: libruvector_scipix-linux-aarch64.so
 
@@ -98,7 +98,7 @@ jobs:
             asset_name: ruvector_scipix-windows-x86_64.dll
 
           - target: wasm32-unknown-unknown
-            os: ubuntu-latest
+            os: ubuntu-26.04
             artifact_name: ruvector_scipix_bg.wasm
             asset_name: ruvector_scipix.wasm
 
@@ -139,7 +139,7 @@ jobs:
   publish-crates:
     name: Publish to crates.io
     needs: [create-release, build]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -155,7 +155,7 @@ jobs:
   publish-npm:
     name: Publish WASM to npm
     needs: [create-release, build]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -194,7 +194,7 @@ jobs:
   publish-models:
     name: Upload ONNX Models
     needs: create-release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

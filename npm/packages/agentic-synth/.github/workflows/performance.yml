@@ -12,7 +12,7 @@ on:
 
 jobs:
   benchmark:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 30
 
     strategy:
@@ -89,7 +89,7 @@ jobs:
         working-directory: packages/agentic-synth
 
   compare:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: benchmark
     if: github.event_name == 'pull_request'
 
@@ -110,7 +110,7 @@ jobs:
           ls -la benchmarks/
 
   notify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: benchmark
     if: failure() && github.ref == 'refs/heads/main'
 

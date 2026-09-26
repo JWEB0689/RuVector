@@ -191,3 +191,6 @@ crates/ruvector-hailo-cluster/Cargo.lock
 crates/hailort-sys/Cargo.lock
 crates/ruvector-mmwave/Cargo.lock
 node_modules
+
+# Local test app
+my-vector-app/

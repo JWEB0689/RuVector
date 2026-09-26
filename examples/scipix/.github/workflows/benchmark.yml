@@ -16,7 +16,7 @@ env:
 jobs:
   benchmark:
     name: Run Benchmarks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -117,7 +117,7 @@ jobs:
 
   performance-regression:
     name: Check Performance Regression
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: github.event_name == 'pull_request'
     needs: benchmark
     steps:
@@ -145,7 +145,7 @@ jobs:
 
   memory-profiling:
     name: Memory Profiling
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -181,7 +181,7 @@ jobs:
 
   flamegraph:
     name: Generate Flamegraph
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
