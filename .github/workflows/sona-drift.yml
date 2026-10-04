@@ -47,7 +47,7 @@ env:
 jobs:
   drift-gate:
     name: Drift gate (parity + fingerprint)
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262

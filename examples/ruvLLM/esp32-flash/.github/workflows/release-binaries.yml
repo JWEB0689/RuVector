@@ -17,7 +17,7 @@ env:
 jobs:
   build-firmware:
     name: Build ${{ matrix.target }}
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -94,7 +94,7 @@ jobs:
   create-release:
     name: Create Release
     needs: build-firmware
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 

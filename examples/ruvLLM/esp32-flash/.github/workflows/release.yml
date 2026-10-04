@@ -17,7 +17,7 @@ env:
 jobs:
   build-npm:
     name: Build npm package
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -47,13 +47,13 @@ jobs:
       matrix:
         include:
           # Linux x86_64
-          - os: ubuntu-26.04
+          - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             artifact: ruvllm-esp32-linux-x64
             features: host-test
 
           # Linux ARM64
-          - os: ubuntu-26.04
+          - os: ubuntu-latest
             target: aarch64-unknown-linux-gnu
             artifact: ruvllm-esp32-linux-arm64
             features: host-test
@@ -125,7 +125,7 @@ jobs:
 
   build-wasm:
     name: Build WebAssembly
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -161,7 +161,7 @@ jobs:
   release:
     name: Create Release
     needs: [build-npm, build-rust, build-wasm]
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
@@ -265,7 +265,7 @@ jobs:
   publish-npm:
     name: Publish to npm
     needs: [release]
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v4

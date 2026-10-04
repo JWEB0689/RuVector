@@ -14,7 +14,7 @@ on:
 
 jobs:
   generate-slug:
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     outputs:
       slug: ${{ steps.slugify.outputs.slug }}
 

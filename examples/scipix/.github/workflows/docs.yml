@@ -17,7 +17,7 @@ env:
 jobs:
   build-docs:
     name: Build Documentation
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
   deploy-docs:
     name: Deploy Documentation
     needs: build-docs
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
@@ -66,7 +66,7 @@ jobs:
 
   check-links:
     name: Check Documentation Links
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -85,7 +85,7 @@ jobs:
 
   readme-sync:
     name: Sync README to docs.rs
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
