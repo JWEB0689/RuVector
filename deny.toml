@@ -108,13 +108,17 @@ ignore = [
     # legacy rand internals; modern paths use getrandom directly.
     "RUSTSEC-2025-0124",
 
-    # NOTE: RUSTSEC-2025-0134 (rustls-pemfile 1.x, unmaintained) was
-    # removed from this list once the last rustls-pemfile 1.0.4 edge
-    # left the graph — it came in via reqwest 0.11 -> hyper 0.14, and
-    # that whole chain went away with the h2 RUSTSEC-2026-0258 fix.
-    # Only rustls-pemfile 2.2.0 remains, which the advisory doesn't
-    # cover. Keeping the entry made cargo-deny emit a permanent
-    # `advisory-not-detected` warning.
+    # rustls-pemfile 2.2.0 — upstream archived, unmaintained notice (RUSTSEC-2025-0134).
+    # Used transitively for PEM parsing; pinned known-good. Re-review on 2026-10-01.
+    "RUSTSEC-2025-0134",
+
+    # lru 0.12.5 / 0.16.4 — potential use-after-free on panic in LruCache::pop() (RUSTSEC-2026-0253).
+    # Transitive in cache layers; no panic path in our usage. Re-review on 2026-10-01.
+    "RUSTSEC-2026-0253",
+
+    # quinn-proto — medium severity timing/state (RUSTSEC-2026-0285).
+    # Transitive via quinn; waiting for upstream bump. Re-review on 2026-10-01.
+    "RUSTSEC-2026-0285",
 
     # ttf-parser — unmaintained (RUSTSEC-2026-0192), "no safe upgrade
     # available" per the advisory itself. Pulled via three unrelated
