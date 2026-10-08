@@ -1,0 +1,16 @@
+.cargo/audit.toml
+  h_09a94a85c48a03 41,43-44
+deny.toml
+  h_09a94a85c48a03 111-121
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9e2a7095da11093ee2d6e652b6eade15994938e4",
+  "prompts": {},
+  "humans": {
+    "h_09a94a85c48a03": {
+      "author": "Jweb0689 <49634855+JWEB0689@users.noreply.github.com>"
+    }
+  }
+}
