@@ -40,6 +40,7 @@
     "@google-cloud/redis": ">=5.0.0",
     "vm2": ">=3.11.5",
     "tar": "7.5.22",
+    "proxy-addr": ">=2.0.8",
     "tsup": {
       "esbuild": "^0.28.1"
     }

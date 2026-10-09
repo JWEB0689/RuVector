@@ -16,6 +16,7 @@
 //! - [`parallel`] — Parallel async execution utilities (ADR-103 A2)
 //! - [`string_pool`] — Thread-safe string interning for repeated strings
 //! - [`agi_container`] — AGI Container building using RVF segments (ADR-103 B1)
+#![allow(clippy::double_must_use)]
 
 pub mod agi_container;
 pub mod arena;

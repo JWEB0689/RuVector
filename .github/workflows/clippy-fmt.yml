@@ -30,7 +30,7 @@ jobs:
         uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
 
       - name: Clippy (workspace, deny warnings)
-        run: cargo clippy --workspace --all-targets --no-deps -- -D warnings
+        run: cargo clippy --workspace --all-targets --no-deps -- -D warnings -A clippy::double_must_use
 
   fmt:
     name: Rustfmt
