@@ -313,7 +313,7 @@ jobs:
           python3 trusted/scripts/research-gate/research_gate.py validate-index \
             evidence/artifact-index.json --root evidence
       - name: Upload evidence for trusted attestation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: research-evidence-${{ inputs.candidate_sha }}
           path: evidence/
@@ -375,7 +375,7 @@ jobs:
         with:
           subject-path: evidence/attestation-subject.json
       - name: Upload attested evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: research-evidence-attested-${{ inputs.candidate_sha }}
           path: evidence/
